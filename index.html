@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jayasree | Personal Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ======= GLOBAL STYLES ======= */
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 15px;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: cyan;
+    }
+
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    h1, h2, h3 {
+      margin: 10px 0;
+    }
+
+    /* ===== HOME SECTION ===== */
+    .profile-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 20px #323236, 0 0 40px #ff0055, 0 0 60px #ff0800;
+      animation: glowAnimation 2s infinite alternate;
+    }
+
+    @keyframes glowAnimation {
+      0% {
+        box-shadow: 0 0 20px #02147a, 0 0 40px #ff0080, 0 0 60px #00eeff;
+      }
+      100% {
+        box-shadow: 0 0 30px #002df5, 0 0 50px #006eff, 0 0 80px #ff0037;
+      }
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      display: inline-block;
+    }
+
+    .social-media {
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      font-size: 30px;
+      margin: 0 10px;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2);
+      color: cyan;
+      box-shadow: 0 0 15px cyan;
+    }
+
+    /* About */
+    #about {
+      background: #222;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .about-img img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .about-text {
+      max-width: 500px;
+      text-align: left;
+    }
+
+    /* Services */
+    #service {
+      background: #111;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px cyan;
+    }
+
+    /* Skills */
+    #skills {
+      background: #222;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .skill {
+      width: 250px;
+    }
+
+    .progress-bar {
+      background: #444;
+      height: 20px;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    .html { width: 90%; background: limegreen; }
+    .css  { width: 80%; background: dodgerblue; }
+    .js   { width: 90%; background: gold; }
+
+    .percentage {
+      position: absolute;
+      right: 10px;
+      top: 0;
+      color: black;
+      font-weight: bold;
+    }
+
+/* Image Gallery */
+.image-gallery {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 30px 0;
+  width: 90vw;
+  max-width: 900px;
+  margin: 150px auto 40px;
+}
+
+.image-gallery img {
+  width: 700px;
+  height: 500px;
+  object-fit: contain;   /* ✅ This shows the full image */
+  background-color: #000; /* Optional: fills space if image doesn't fill box */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05);
+}
+.video-section {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.carousel-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  height: 60vh;
+  position: relative;
+}
+
+
+
+.video-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-card video {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.controls {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.controls button {
+  pointer-events: all;
+  background: transparent;
+  border: 2px solid gold;
+  color: gold;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.controls button:hover {
+  background: gold;
+  color: black;
+}
+
+    /* Contact */
+    #contact {
+      background: #222;
+    }
+
+    .contact-form {
+      width: 80%;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .submit-btn {
+      background: cyan;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px cyan;
+    }
+
+    /* Glow classes */
+    .glow, .glow-btn, .glow-social {
+      box-shadow: 0 0 15px 5px cyan !important;
+      transform: scale(1.05);
+    }
+
+/* Social Footer */
+footer.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  background: transparent;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+footer.social-row a {
+  color: gold;
+  font-size: 28px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+footer.social-row a:hover {
+  transform: scale(1.2);
+}
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  background: transparent;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+.social-row a {
+  color: gold;
+  font-size: 28px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.social-row a:hover {
+  transform: scale(1.2);
+}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <div class="profile-container">
+      <img src="https://raw.githubusercontent.com/Bhavana2628/IOT/refs/heads/main/IMG-20250629-WA0009.jpg" class="profile-pic" alt="Jayasree">
+    </div>
+    <div class="intro">
+      <h2>𝖧𝖾𝗅𝗅𝗈 𝗂𝗍'𝗌 𝗆𝖾</h2>
+      <h1>Jayasree</h1>
+      <h3>𝖠𝗇𝖽 𝖨'𝗆 𝖺 Photographer,Editor</h3>
+    
+    </div>
+   
+  </section>
+
+  <section id="about">
+    <div class="about-container">
+      <div class="about-img">
+        <img src="https://raw.githubusercontent.com/Bhavana2628/IOT/refs/heads/main/IMG-20250629-WA0009.jpg" alt="Profile Picture" class="profile-img">
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>Hi, I'm Jayasree – a passionate Editor and Photographer specializing in storytelling through visuals. With a strong foundation in DEII (Digital Editing & Imaging Integration), I bring moments to life through precise editing and a creative lens.
+
+          Whether it's capturing raw emotion in a candid frame or enhancing the mood with professional-grade editing, my goal is simple: to make every shot speak. Over the years, I've worked across diverse projects that range from portraits to promotional content – always with a commitment to quality and authenticity.
+          
+          For me, photography isn’t just about clicking pictures – it’s about preserving emotion, enhancing detail, and creating a lasting impression.</p>
+      
+        <p>Let’s create something meaningful together.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="service">
+    <h2>My Services</h2>
+    <div class="service-cards">
+  
+      <div class="card">
+        <h3>Photography</h3>
+        <p>Professional shoots for weddings, portraits, events, and products. Capturing moments with creative vision.</p>
+      </div>
+  
+      <div class="card">
+        <h3>Photo Editing</h3>
+        <p>High-end retouching, color correction, and image enhancement using Photoshop & Lightroom.</p>
+      </div>
+  
+      <div class="card">
+        <h3>Video Editing</h3>
+        <p>Creative video editing for reels, promos, and events using Premiere Pro and Final Cut Pro.</p>
+      </div>
+  
+      <div class="card">
+        <h3> Workflow Support</h3>
+        <p>Digital Imaging & Integration services, ensuring visual consistency and professional media delivery.</p>
+      </div>
+  
+    </div>
+  </section>
+  
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-list">
+  
+      <div class="skill">
+        <h3>Photo Editing (Adobe Photoshop / Lightroom)</h3>
+        <div class="progress-bar">
+          <div class="progress" style="width: 95%; background-color: #f67280;"></div>
+          <span class="percentage">95%</span>
+        </div>
+      </div>
+  
+      <div class="skill">
+        <h3>Video Editing (Premiere Pro / Final Cut Pro)</h3>
+        <div class="progress-bar">
+          <div class="progress" style="width: 90%; background-color: #6c5ce7;"></div>
+          <span class="percentage">90%</span>
+        </div>
+      </div>
+  
+      <div class="skill">
+        <h3>Photography (Portraits, Events, Product)</h3>
+        <div class="progress-bar">
+          <div class="progress" style="width: 92%; background-color: #00b894;"></div>
+          <span class="percentage">92%</span>
+        </div>
+      </div>
+  
+      <div class="skill">
+        <h3>Color Grading & Retouching</h3>
+        <div class="progress-bar">
+          <div class="progress" style="width: 85%; background-color: #fdcb6e;"></div>
+          <span class="percentage">85%</span>
+        </div>
+      </div>
+  
+      <div class="skill">
+        <h3>Digital Imaging & Workflows</h3>
+        <div class="progress-bar">
+          <div class="progress" style="width: 88%; background-color: #0984e3;"></div>
+          <span class="percentage">88%</span>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  <section id="projects">
+    <h2>My Projects</h2>
+  
+    
+
+
+<!-- Video Carousel Section -->
+<div class="carousel-container">
+<div class="controls">
+<button id="btn-remove" title="Previous Video">−</button>
+<button id="btn-add" title="Next Video">+</button>
+</div>
+<div class="carousel" id="carousel">
+<!-- Single video card appended by JS -->
+</div>
+</div>
+<div>
+<!-- Image Gallery -->
+<div class="image-gallery">
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/im/refs/heads/main/reelsvideo.io_1749137245475.jpeg" alt="Image 1" />
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/im/refs/heads/main/WhatsApp%20Image%202025-06-05%20at%2021.58.17.jpeg" alt="Image 2" />
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/im/refs/heads/main/WhatsApp%20Image%202025-06-05%20at%2021.58.18%20(1).jpeg" alt="Image 3" />
+<img src=" https://raw.githubusercontent.com/Bhavana-Oii2628/nah/refs/heads/raw/WhatsApp%20Image%202025-06-06%20at%2015.52.34.jpeg" alt="Image4"/>
+
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/nah/refs/heads/raw/WhatsApp%20Image%202025-06-06%20at%2013.36.11%20(1).jpeg" alt="Image 6"/>
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/nah/refs/heads/raw/WhatsApp%20Image%202025-06-06%20at%2016.15.17.jpeg" alt="Image 7"/>
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/im/refs/heads/main/WhatsApp%20Image%202025-06-05%20at%2021.58.18.jpeg" alt="Image 8" />
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/nah/refs/heads/raw/WhatsApp%20Image%202025-06-06%20at%2013.36.11.jpeg" alt="Image 9"/>
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/im/refs/heads/main/WhatsApp%20Image%202025-06-05%20at%2021.58.20.jpeg" alt="Image 10" />
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/nah/refs/heads/raw/WhatsApp%20Image%202025-06-06%20at%2015.51.46.jpeg" alt="image12"/>
+<img src="https://raw.githubusercontent.com/Bhavana-Oii2628/im/refs/heads/main/WhatsApp%20Image%202025-06-05%20at%2021.58.19.jpeg" alt="Image 11" />
+
+</div>
+</div>
+
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Subject" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="social-icons">
+    <a href="#"><img src="facebook.png" alt=""></a>
+    <a href="#"><img src="instagram.png" alt=""></a>
+    <a href="#"><img src="twitter.png" alt=""></a>
+    <a href="#"><img src="google.png" alt=""></a>
+  </div>
+  <div class="social-media">
+    <a href="https://www.linkedin.com/in/shree-js-61a29a364?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/itz_fix_set_/?utm_source=qr&igsh=a2Vqbzc1aHJobXZ5#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon github"><i class="fab fa-github"></i></a>
+    <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+  </div>
+  <script>
+    function addGlowEffect(el, cls) {
+      el.classList.add(cls);
+    }
+
+    function removeGlowEffect(el, cls) {
+      el.classList.remove(cls);
+    }
+
+    document.querySelector('.profile-img')?.addEventListener('mouseenter', () => {
+      addGlowEffect(event.target, 'glow');
+    });
+
+    document.querySelector('.profile-img')?.addEventListener('mouseleave', () => {
+      removeGlowEffect(event.target, 'glow');
+    });
+
+    const btn = document.querySelector('.submit-btn');
+    btn.addEventListener('mouseenter', () => addGlowEffect(btn, 'glow-btn'));
+    btn.addEventListener('mouseleave', () => removeGlowEffect(btn, 'glow-btn'));
+
+    document.querySelectorAll('.social-icon').forEach(icon => {
+      icon.addEventListener('mouseenter', () => addGlowEffect(icon, 'glow-social'));
+      icon.addEventListener('mouseleave', () => removeGlowEffect(icon, 'glow-social'));
+    });
+  </script>
+  <!-- Video Carousel Script -->
+  <script>
+    const videos = [
+      "https://www.rdcollege.in/images/RD%20National%20College%20of%20Arts%20and%20Science%20_%20Erode.mp4",
+      "https://dl.dropboxusercontent.com/scl/fi/nrxy7484f6ur1l34xlb9z/reelsvideo.io_1749105317245.mp4?rlkey=bmc2blzv4cdsxn8vm17i8j6xs&st=bxxzh7mc", 
+       "https://dl.dropboxusercontent.com/scl/fi/y2hd3052yblwgwes8tbys/reelsvideo.io_1749106970109.mp4?rlkey=zynefskwq065y7e2d2kmszonw&st=zlkgaeke",
+      "https://dl.dropboxusercontent.com/scl/fi/97ti739f64llw8qge20w5/reelsvideo.io_1749105236155.mp4?rlkey=gn836w4ozg5i2i7kko15fathn&st=fh04jhqh",
+      "https://dl.dropboxusercontent.com/scl/fi/j37eppz3aa2arpwkjv9mw/reelsvideo.io_1749105179224.mp4?rlkey=vohneod0gtbkj5hdo0f3bg5fr&st=q3gbk536",
+      "https://dl.dropboxusercontent.com/scl/fi/af3iaq1hesqjcg6gsy5ch/reelsvideo.io_1749106894991.mp4?rlkey=aepzrhsx0qy0vnvddoxh1fkdi&st=dteheng9",
+      "https://dl.dropboxusercontent.com/scl/fi/2n46bk0iwzyb0cllb9ly7/reelsvideo.io_1749111199492.mp4?rlkey=hups6plw65lv1uwkomlgfude5&st=y8c9g05u",
+
+
+    
+      
+    ];
+    let currentIndex = 0;
+
+const carousel = document.getElementById('carousel');
+const addButton = document.getElementById('btn-add');    // Next
+const removeButton = document.getElementById('btn-remove');  // Previous
+
+// Create the video card and video element once
+function createVideoCard() {
+  const videoCard = document.createElement('div');
+  videoCard.classList.add('video-card');
+
+  const video = document.createElement('video');
+  video.controls = true;
+  video.autoplay = true;
+  video.muted = false;
+  video.style.width = '100%';
+  video.style.height = '100%';
+  video.style.borderRadius = '20px';
+  video.style.objectFit = 'cover';
+
+  videoCard.appendChild(video);
+  return { videoCard, video };
+}
+
+const { videoCard, video } = createVideoCard();
+carousel.appendChild(videoCard);
+
+function updateVideo() {
+  video.src = videos[currentIndex];
+  video.load();
+  video.play();
+}
+
+addButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % videos.length;
+  updateVideo();
+});
+
+removeButton.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+  updateVideo();
+});
+
+// Load the first video initially
+updateVideo();
+function updateVideo() {
+const videoUrl = videos[currentIndex];
+videoCard.innerHTML = ''; // Clear existing content
+
+const videoElement = document.createElement('video');
+videoElement.src = videoUrl;
+videoElement.controls = true;
+videoElement.autoplay = true;
+videoElement.muted = false;
+videoElement.style.width = '100%';
+videoElement.style.height = '100%';
+videoElement.style.borderRadius = '20px';
+videoElement.style.objectFit = 'cover';
+
+// Wait for metadata to load before playing (optional smooth play)
+videoElement.addEventListener('loadedmetadata', () => {
+videoElement.play();
+});
+
+videoCard.appendChild(videoElement);
+}
+
+  // Wait until the page is fully loaded
+  window.addEventListener("load", () => {
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+      const progress = bar.querySelector('.progress');
+      const finalWidth = progress.getAttribute('style').match(/width:\s*(\d+)%/)[1]; // Get width value
+      progress.style.width = '0'; // Start from 0
+      setTimeout(() => {
+        progress.style.width = finalWidth + '%'; // Animate to final value
+      }, 500); // slight delay to trigger animation
+    });
+  });
+
+
+    </script>
+</body>
+</html>
